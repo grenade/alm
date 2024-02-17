@@ -1,1 +1,3 @@
-init.sh
+#!/usr/bin/env bash
+
+date
