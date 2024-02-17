@@ -13,7 +13,13 @@ RUN apk add --update --no-cache \
 ADD https://github.com/openshift/origin/releases/download/v3.11.0/openshift-origin-client-tools-v3.11.0-0cbc58b-linux-64bit.tar.gz /tmp
 RUN tar zxf /tmp/openshift-origin-client-tools-v3.11.0-0cbc58b-linux-64bit.tar.gz --strip-components=1 -C /usr/local/bin
 RUN rm /tmp/openshift-origin-client-tools-v3.11.0-0cbc58b-linux-64bit.tar.gz
-RUN adduser -D -G wheel -h /home/grenade -s /bin/bash grenade
+RUN adduser \
+  --user-group \
+  --groups wheel \
+  --create-home \
+  --home-dir /home/grenade \
+  --shell /bin/bash \
+  grenade
 RUN echo 'permit grenade as root' > /etc/doas.d/doas.conf
 RUN mkdir -p /home/grenade/.ssh
 RUN chmod 700 /home/grenade/.ssh
