@@ -15,9 +15,10 @@ ENV openshift_token ${openshift_token}
 RUN useradd \
   --create-home \
   --home-dir /home/alm \
+  --shell /bin/bash \
   --uid 1000770000 \
   --user-group \
-  --group systemd-journal \
+  --group adm \
   alm
 
 USER alm
