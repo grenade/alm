@@ -22,6 +22,7 @@ RUN adduser \
   -s /bin/bash \
   -D \
   -G grenade \
+  -u 1001360000 \
   grenade
 RUN echo 'permit grenade as root' > /etc/doas.d/doas.conf
 RUN mkdir -p /home/grenade/.ssh
