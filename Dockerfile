@@ -17,9 +17,9 @@ RUN adduser -D -G wheel -h /home/grenade -s /bin/bash grenade
 RUN echo 'permit grenade as root' > /etc/doas.d/doas.conf
 RUN mkdir -p /home/grenade/.ssh
 RUN chmod 700 /home/grenade/.ssh
-ADD https://github.com/grenade.keys /tmp
-COPY --chmod=0644 /tmp/grenade.keys /home/grenade/.ssh/authorized_keys
-RUN rm /tmp/grenade.keys
+ADD https://github.com/grenade.keys /home/grenade/.ssh/authorized_keys
+RUN chmod 644 /home/grenade/.ssh/authorized_keys
+RUN chown -R grenade:grenade /home/grenade/.ssh
 
 RUN sed -i 's/Port 22/Port 8080/g' /etc/ssh/sshd_config
 rc-update add sshd
