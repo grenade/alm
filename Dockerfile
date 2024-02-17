@@ -7,6 +7,7 @@ RUN apk add --update --no-cache \
   gcompat \
   git \
   libstdc++ \
+  openrc \
   openssh \
   tar
 RUN rc-service sshd start
@@ -28,4 +29,4 @@ EXPOSE 8080
 
 USER grenade
 
-CMD rc-status
+CMD /sbin/init
