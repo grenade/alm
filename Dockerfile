@@ -28,7 +28,6 @@ RUN chmod 644 /home/grenade/.ssh/authorized_keys
 RUN chown -R grenade:grenade /home/grenade/.ssh
 
 RUN sed -i 's/Port 22/Port 8080/g' /etc/ssh/sshd_config
-rc-update add sshd
 
 EXPOSE 8080
 
