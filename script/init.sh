@@ -1,3 +1,6 @@
 #!/usr/bin/env bash
 
-date
+while true; do
+	date
+	sleep 10
+done
