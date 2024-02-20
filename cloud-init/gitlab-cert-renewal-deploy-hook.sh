@@ -21,4 +21,4 @@ cat \
 
 ln -sf \
   /etc/letsencrypt/live/gitlab.thgttg.com/privkey.pem \
-  /etc/gitlab/ssl/gitlab.thgttg.com.crt
+  /etc/gitlab/ssl/gitlab.thgttg.com.ke
